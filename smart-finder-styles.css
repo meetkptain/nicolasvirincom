@@ -1,0 +1,628 @@
+/**
+ * ⚓ SMART FINDER STYLES
+ * Styles pour le chatbot conversationnel intelligent
+ */
+
+/* ==========================================
+   POPUP EMAIL
+   ========================================== */
+
+.captain-email-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInOverlay 0.3s ease;
+}
+
+.popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.popup-content {
+    position: relative;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    animation: slideUp 0.4s ease;
+    z-index: 999999;
+}
+
+.popup-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+}
+
+.popup-subtitle {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+.popup-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.popup-content input[type="email"] {
+    padding: 1rem 1.25rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.popup-content input[type="email"]:focus {
+    outline: none;
+    border-color: #0066FF;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.btn-captain-primary {
+    padding: 1rem 1.5rem;
+    background: #0066FF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-captain-primary:hover {
+    background: #0052CC;
+    transform: translateY(-2px);
+}
+
+.btn-captain-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.popup-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+    text-align: center;
+}
+
+@keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================================
+   SMART FINDER MODAL
+   ========================================== */
+
+.smart-finder-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 999998;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    animation: fadeInOverlay 0.3s ease;
+}
+
+.smart-finder-wrapper {
+    position: relative;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    max-width: 450px;
+    height: 80vh;
+    max-height: 600px;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideUpFromBottom 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.smart-finder-header {
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.smart-finder-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.smart-finder-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.smart-finder-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.smart-finder-content {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ==========================================
+   MESSAGES
+   ========================================== */
+
+.smart-message {
+    padding: 18px 20px;
+    border-radius: 12px;
+    max-width: 85%;
+    word-wrap: break-word;
+    font-size: 16px;
+    line-height: 1.7;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    border-left: 4px solid #667eea;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.smart-message.bot {
+    align-self: flex-start;
+}
+
+.smart-message.question {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-left: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 20px 24px;
+}
+
+.smart-message.user {
+    background: #667eea;
+    color: white;
+    align-self: flex-end;
+}
+
+/* Animations */
+.animate-fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.animate-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.typing-cursor {
+    animation: blink 1s infinite;
+    color: #667eea;
+    font-weight: bold;
+    font-size: 18px;
+    will-change: opacity;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Pulse pour app cards */
+@keyframes pulse-gentle {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+    }
+}
+
+.smart-app-card {
+    animation: pulse-gentle 2s ease-in-out;
+    will-change: transform;
+}
+
+/* Slide pour options */
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.smart-option-btn {
+    animation: slide-in 0.3s ease;
+}
+
+.smart-finder-loading {
+    text-align: center;
+    padding: 2rem;
+    color: #6b7280;
+    animation: pulse 1.5s ease infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpFromBottom {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ==========================================
+   OPTIONS BUTTONS
+   ========================================== */
+
+.smart-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.smart-option-btn {
+    background: white;
+    border: 2px solid #e5e7eb;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1f2937;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    animation: slideUp 0.4s ease;
+    animation-fill-mode: both;
+    will-change: transform, opacity;
+}
+
+.smart-option-btn:hover {
+    border-color: #667eea;
+    background: #f8f9ff;
+    transform: translateX(4px);
+}
+
+.smart-option-btn:active {
+    transform: translateX(2px);
+}
+
+/* ==========================================
+   APP CARDS
+   ========================================== */
+
+.smart-app-card {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+    animation: slideUp 0.5s ease;
+    animation-fill-mode: both;
+    transition: all 0.3s ease;
+    will-change: transform, opacity;
+}
+
+.smart-app-card:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+    transform: translateY(-2px);
+}
+
+.smart-app-card.featured {
+    border: 2px solid #667eea;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.25);
+    background: linear-gradient(to bottom, #f8f9ff, white);
+}
+
+.app-badges-header {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.app-badge {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    background: #f3f4f6;
+    color: #374151;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.app-badge.featured-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: bold;
+}
+
+.app-modules {
+    background: #f8f9ff;
+    border: 1px solid #e0e7ff;
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.modules-title {
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.modules-list {
+    font-size: 0.85rem;
+    color: #4b5563;
+}
+
+.module-item {
+    margin-bottom: 0.25rem;
+}
+
+.module-item strong {
+    color: #1f2937;
+    text-transform: capitalize;
+}
+
+.app-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.app-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.app-info h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1rem;
+    color: #1f2937;
+}
+
+.app-description {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.app-match {
+    margin-bottom: 0.75rem;
+}
+
+.match-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.375rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.app-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.app-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.app-price span {
+    font-size: 0.75rem;
+    font-weight: normal;
+    color: #6b7280;
+}
+
+.app-setup {
+    font-size: 0.875rem;
+}
+
+.btn-app-select {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-app-select:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-app-select:active {
+    transform: translateY(0);
+}
+
+.app-social-proof {
+    font-size: 0.8rem;
+    color: #059669;
+    background: #d1fae5;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin: 0.75rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   CONTEXTUAL FORM
+   ========================================== */
+
+.smart-form {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+
+.smart-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 0.9rem;
+}
+
+.smart-form input,
+.smart-form select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.smart-form input:focus,
+.smart-form select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.smart-form button {
+    width: 100%;
+}
+
+/* ==========================================
+   RESPONSIVE - MOBILE
+   ========================================== */
+
+@media (max-width: 768px) {
+    .smart-finder-modal {
+        align-items: stretch;
+    }
+    
+    .smart-finder-wrapper {
+        width: 100%;
+        height: 90vh;
+        max-height: none;
+        border-radius: 0;
+    }
+    
+    .popup-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .popup-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .smart-option-btn {
+        font-size: 0.95rem;
+    }
+    
+    .app-header {
+        gap: 0.75rem;
+    }
+    
+    .app-icon {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    .smart-finder-content {
+        padding: 1rem;
+    }
+    
+    .smart-message {
+        max-width: 90%;
+    }
+}
+
+/* ==========================================
+   UTILITY CLASSES
+   ========================================== */
+
+.hidden {
+    display: none !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease;
+}
+
+.slide-up {
+    animation: slideUp 0.4s ease;
+}
+

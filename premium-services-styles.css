@@ -1,0 +1,280 @@
+/* ==========================================
+   PREMIUM SERVICES SECTION
+   ========================================== */
+
+.premium-services {
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 100%);
+    color: white;
+}
+
+.premium-services .section-header {
+    color: white;
+}
+
+.premium-services .section-badge {
+    background: linear-gradient(135deg, #FF6B35, #FF8C42);
+    color: white;
+}
+
+.premium-services .section-title {
+    color: white;
+}
+
+.premium-services .section-description {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.premium-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+    border: 2px solid transparent;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+}
+
+.premium-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    border-color: #0066FF;
+}
+
+.premium-card.featured {
+    border-color: #0066FF;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.15), rgba(108, 92, 231, 0.15));
+    box-shadow: 0 20px 60px rgba(0, 102, 255, 0.2);
+    color: var(--text-primary);
+}
+
+/* Styles spécifiques pour la carte featured - Texte blanc */
+.premium-card.featured .premium-subtitle {
+    color: white;
+}
+
+.premium-card.featured .premium-desc {
+    color: white;
+}
+
+.premium-card.featured .premium-desc strong {
+    color: white;
+    font-weight: 700;
+}
+
+.premium-card.featured .premium-features li {
+    color: white;
+}
+
+.premium-card.featured .pricing-note {
+    color: white;
+}
+
+.premium-card.featured .pricing-note strong {
+    color: white;
+}
+
+.premium-card.featured .pricing-details {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.premium-badge {
+    position: absolute;
+    top: -15px;
+    right: 2rem;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.premium-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.15), rgba(108, 92, 231, 0.15));
+    border-radius: var(--radius-lg);
+}
+
+.premium-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.premium-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.premium-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.premium-desc {
+    color: var(--text-primary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.premium-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.premium-features li {
+    padding: 0.75rem 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+.premium-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.premium-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.premium-stat .stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.premium-stat .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+.premium-pricing {
+    margin-top: auto;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(108, 92, 231, 0.05));
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+}
+
+.pricing-note {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.pricing-details {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-style: italic;
+    font-weight: 500;
+}
+
+.premium-card .btn {
+    width: 100%;
+    text-align: center;
+}
+
+.premium-cta {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3rem;
+    border-radius: var(--radius-xl);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.premium-cta-text {
+    font-size: 1.3rem;
+    color: white;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.premium-cta-text strong {
+    color: white;
+    font-weight: 700;
+}
+
+.premium-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.premium-buttons .btn {
+    min-width: 250px;
+}
+
+.premium-buttons .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.premium-buttons .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .premium-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .premium-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .premium-cta {
+        padding: 2rem 1.5rem;
+    }
+    
+    .premium-buttons {
+        flex-direction: column;
+    }
+    
+    .premium-buttons .btn {
+        width: 100%;
+    }
+}
+

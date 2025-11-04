@@ -1,0 +1,491 @@
+{
+  "version": "1.0",
+  "settings": {
+    "intro_message": "Salut 👋 Nicolas Virin à bord ! Je te pose une question rapide pour trouver ton app.",
+    "typing_delay": 500,
+    "button_delay": 300,
+    "show_skip": true,
+    "skip_text": "Skip",
+    "min_recommendations": 2,
+    "max_recommendations": 3
+  },
+  "questions": [
+    {
+      "id": "sector",
+      "priority": 1,
+      "text": "Quel est ton secteur ?",
+      "type": "buttons",
+      "required": false,
+      "options": [
+        {
+          "label": "🍽️ Restaurant / Food",
+          "value": "restaurant",
+          "weight": 40,
+          "icon": "🍽️"
+        },
+        {
+          "label": "🛒 E-commerce / Boutique",
+          "value": "ecommerce",
+          "weight": 30,
+          "icon": "🛒"
+        },
+        {
+          "label": "🎓 Formation / École",
+          "value": "education",
+          "weight": 20,
+          "icon": "🎓"
+        },
+        {
+          "label": "❓ Autre secteur",
+          "value": "general",
+          "weight": 10,
+          "icon": "❓"
+        }
+      ]
+    }
+  ],
+  "apps": {
+    "restaurantos": {
+      "id": "restaurantos",
+      "name": "RestaurantOS",
+      "icon": "🍽️",
+      "category": "restaurant",
+      "featured": true,
+      "description": "Automatise ton resto en pilote auto. Tes clients commandent 24/7 même quand tu dors, argent récupéré automatiquement, concentres-toi sur tes plats.\n\n→ 2h de temps libre/jour garanti\n→ +30% CA en 2 mois",
+      "social_proof": "✅ 100+ restaurants actifs • ⚡ Setup moyen 1h • ⭐ 4.8/5 clients",
+      "min_score": 30,
+      "pricing": {
+        "monthly": 297,
+        "lifetime": 3497
+      },
+      "has_lifetime": true,
+      "setup_time": "Actif en 1h, commandes en 24h",
+      "badges": ["Best-seller", "Populaire"],
+      "features": [
+        "Site responsive personnalisable",
+        "Menu digital dynamique (QR code)",
+        "Click & Collect / Livraison",
+        "Système de réservation"
+      ],
+      "form_questions": [
+        {
+          "id": "restaurant_name",
+          "label": "Nom de ton restaurant",
+          "type": "text",
+          "required": false,
+          "placeholder": "Ex: Le Capitaine"
+        },
+        {
+          "id": "tables",
+          "label": "Nombre de tables",
+          "type": "select",
+          "required": true,
+          "options": ["< 20", "20-50", "50-100", "100+"]
+        }
+      ]
+    },
+    "tablebooker": {
+      "id": "tablebooker",
+      "name": "TableBooker",
+      "icon": "📅",
+      "category": "restaurant",
+      "description": "Plus jamais de surbooking. Tes clients réservent quand ils veulent, toi tu dors tranquille.\n\n→ Temps gagné : 5h/semaine\n→ Client satisfait 100%",
+      "min_score": 20,
+      "pricing": {"monthly": 97},
+      "has_lifetime": false,
+      "setup_time": "Démarre en 15 min, rentable en 24h",
+      "badges": [],
+      "features": [
+        "Widget personnalisable",
+        "Confirmations auto email/SMS",
+        "Planning visuel",
+        "Analytics réservations"
+      ]
+    },
+    "menudigital": {
+      "id": "menudigital",
+      "name": "MenuDigital",
+      "icon": "📱",
+      "category": "restaurant",
+      "description": "Fini les impressions. Tes clients gagnent du temps, toi tu économises papier et stress.\n\n→ 0€ dépensés en impressions\n→ Clients ravis du confort",
+      "min_score": 15,
+      "pricing": {"monthly": 47},
+      "has_lifetime": false,
+      "setup_time": "Active en 10 min, résultats en 24h",
+      "badges": [],
+      "features": [
+        "QR code généré auto",
+        "Updates en temps réel",
+        "Multi-langues auto",
+        "Photos et descriptions"
+      ]
+    },
+    "shopready": {
+      "id": "shopready",
+      "name": "ShopReady",
+      "icon": "🛒",
+      "category": "ecommerce",
+      "featured": true,
+      "description": "Double tes ventes pendant que tu dors. Tes produits se vendent 24/7, payement auto, stock géré intelligent.\n\n→ 20h gestion économisée/semaine\n→ Concentres-toi sur tes produits",
+      "social_proof": "✅ 50+ boutiques live • ⚡ Templates modernes • 🛡️ Paiement sécurisé",
+      "min_score": 30,
+      "pricing": {
+        "monthly": 397,
+        "lifetime": 3497
+      },
+      "has_lifetime": true,
+      "setup_time": "Actif en 2h, ventes en 48h",
+      "badges": ["Nouveau"],
+      "features": [
+        "Templates modernes (10 choix)",
+        "Paiement Stripe/PayPal",
+        "Gestion stock automatique",
+        "SEO optimisé"
+      ],
+      "form_questions": [
+        {
+          "id": "products_count",
+          "label": "Nombre de produits",
+          "type": "select",
+          "required": true,
+          "options": ["< 100", "100-500", "500-1000", "1000+"]
+        }
+      ]
+    },
+    "chatsales": {
+      "id": "chatsales",
+      "name": "ChatSales",
+      "icon": "🤖",
+      "category": "ecommerce",
+      "description": "Vends même quand tu dors. IA répond aux questions, pousse à l'achat, récupère paniers abandonnés.\n\n→ +20% conversion automatique\n→ 24/7 vendeur infatigable",
+      "min_score": 25,
+      "pricing": {"monthly": 147},
+      "has_lifetime": false,
+      "setup_time": "Démarre en 30 min, rentable demain",
+      "badges": [],
+      "features": [
+        "Recommandations produits IA",
+        "Réponses questions clients",
+        "Panier abandonné recovery",
+        "Multi-langues"
+      ]
+    },
+    "fomowidget": {
+      "id": "fomowidget",
+      "name": "FOMOWidget",
+      "icon": "🔥",
+      "category": "ecommerce",
+      "description": "Créée l'urgence sans effort. Tes clients voient que d'autres achètent, paniquent, achètent aussi.\n\n→ +15% ventes impulsives\n→ FOMO travaillée pour toi",
+      "min_score": 15,
+      "pricing": {"monthly": 47},
+      "has_lifetime": false,
+      "setup_time": "Ultra-rapide : 5 min, visible instantanément",
+      "badges": [],
+      "features": [
+        "Notifs temps réel achats",
+        "Compteur visiteurs live",
+        "Stock limité alerts",
+        "100% personnalisable"
+      ]
+    },
+    "autopost": {
+      "id": "autopost",
+      "name": "AutoPost",
+      "icon": "📱",
+      "category": "marketing",
+      "description": "Communauté grandit automatiquement. Posts publiés, engagement boosté, stats analysées.\n\n→ 10h/semaine économisées\n→ Audience multipliée x3",
+      "min_score": 20,
+      "pricing": {"monthly": 197},
+      "has_lifetime": false,
+      "setup_time": "Active en 20 min, fonctionne immédiatement",
+      "badges": [],
+      "features": [
+        "Génération contenu IA",
+        "Planification multi-canal",
+        "Analytics intégré",
+        "50+ posts/mois"
+      ]
+    },
+    "contentai": {
+      "id": "contentai",
+      "name": "ContentAI",
+      "icon": "✍️",
+      "category": "marketing",
+      "description": "Contenu professionnel en 2 clics. IA écrit pour toi, toi tu approuves, ça part.\n\n→ Plus jamais la page blanche\n→ Qualité constante assurée",
+      "min_score": 15,
+      "pricing": {"monthly": 147},
+      "has_lifetime": false,
+      "setup_time": "Active en 10 min, résultats en 24h",
+      "badges": [],
+      "features": [
+        "IA GPT-4 avancée",
+        "SEO auto-optimisé",
+        "20+ templates",
+        "Multi-langues"
+      ]
+    },
+    "emailflow": {
+      "id": "emailflow",
+      "name": "EmailFlow",
+      "icon": "📧",
+      "category": "marketing",
+      "description": "Vends sans parler. Emails partent automatiquement, clients reviennent, toi tu dors.\n\n→ +25% taux d'ouverture\n→ Croissance passive garantie",
+      "min_score": 10,
+      "pricing": {"monthly": 97},
+      "has_lifetime": false,
+      "setup_time": "Démarre en 15 min, rentable en 24h",
+      "badges": [],
+      "features": [
+        "Séquences automatisées",
+        "Segmentation avancée",
+        "A/B testing",
+        "Templates pros"
+      ]
+    },
+    "tickethub": {
+      "id": "tickethub",
+      "name": "TicketHub",
+      "icon": "🎫",
+      "category": "support",
+      "description": "Clients satisfaits sans effort. Tickets triés automatiquement, SLA respectés, toi tu dors tranquille.\n\n→ Réponse client x10 plus rapide\n→ Support pro à 100%",
+      "min_score": 20,
+      "pricing": {"monthly": 197},
+      "has_lifetime": false,
+      "setup_time": "Démarre en 30 min, rentable demain",
+      "badges": [],
+      "features": [
+        "Ticketing multi-canal",
+        "Attribution automatique",
+        "SLA & alertes",
+        "Analytics détaillés"
+      ]
+    },
+    "chatbotpro": {
+      "id": "chatbotpro",
+      "name": "ChatBotPro",
+      "icon": "🤖",
+      "category": "support",
+      "description": "Support 24/7 sans embaucher. IA répond à tout, clients satisfaits, toi tu économises 3000€/mois.\n\n→ 24/7 assistante infatigable\n→ 80% tickets résolus auto",
+      "min_score": 15,
+      "pricing": {"monthly": 147},
+      "has_lifetime": false,
+      "setup_time": "Active en 20 min, fonctionne immédiatement",
+      "badges": [],
+      "features": [
+        "10 templates secteurs",
+        "Formation auto sur vos docs",
+        "Multi-canal",
+        "Transfert humain intelligent"
+      ]
+    },
+    "helpcenter": {
+      "id": "helpcenter",
+      "name": "HelpCenter",
+      "icon": "📚",
+      "category": "support",
+      "description": "Fini les questions répétées. Base de connaissance qui répond à tout, SEO optimisé.\n\n→ 50% tickets en moins\n→ Clients autonomes et satisfaits",
+      "min_score": 10,
+      "pricing": {"monthly": 97},
+      "has_lifetime": false,
+      "setup_time": "Démarre en 15 min, rentable en 24h",
+      "badges": [],
+      "features": [
+        "Recherche IA intelligente",
+        "Templates articles",
+        "SEO optimisé",
+        "Analytics"
+      ]
+    },
+    "smartschool-vitrine-independant": {
+      "id": "smartschool-vitrine-independant",
+      "name": "SmartSchool Vitrine Indépendant",
+      "icon": "🎓",
+      "category": "education",
+      "featured": false,
+      "description": "Site vitrine simple et professionnel pour formateur indépendant. Présentation formations, disponibilité, contact. Mise en place en 24-48h.\n\n→ Site professionnel en 24-48h\n→ Présentation de vos formations",
+      "social_proof": "✅ Site vitrine professionnel • ⚡ Mise en place 24-48h • 📱 Responsive",
+      "min_score": 10,
+      "pricing": {
+        "monthly": 97,
+        "lifetime": 997
+      },
+      "has_lifetime": true,
+      "setup_time": "Mise en place en 24-48h, site live",
+      "badges": ["Simple"],
+      "features": [
+        "Présentation de vos formations",
+        "Calendrier de disponibilité",
+        "Formulaire de contact",
+        "Blog conseils"
+      ]
+    },
+    "smartschool-vitrine-centre": {
+      "id": "smartschool-vitrine-centre",
+      "name": "SmartSchool Vitrine Centre",
+      "icon": "🎓",
+      "category": "education",
+      "featured": false,
+      "description": "Site vitrine complet pour votre centre : formations, calendrier, inscriptions, témoignages. Mise en place en 24-48h, résultats dès le 1er jour.\n\n→ Site complet pour centre de formations\n→ Gestion multi-formations",
+      "social_proof": "✅ Site complet multi-formations • ⚡ Mise en place 24-48h • 📱 Responsive",
+      "min_score": 15,
+      "pricing": {
+        "monthly": 197,
+        "lifetime": 1997
+      },
+      "has_lifetime": true,
+      "setup_time": "Mise en place en 24-48h, site live",
+      "badges": ["Complet"],
+      "features": [
+        "Présentation complète de vos formations",
+        "Calendrier des sessions",
+        "Formulaire d'inscription",
+        "Blog & actualités"
+      ]
+    },
+    "smartschool-lms": {
+      "id": "smartschool-lms",
+      "name": "SmartSchool LMS",
+      "icon": "🎓",
+      "category": "education",
+      "featured": true,
+      "description": "Plateforme LMS complète : cours vidéo, quiz, examens, suivi élèves, certifications. Tout-en-un pour créer et gérer vos formations. Mise en place en 24-48h.\n\n→ Plateforme LMS complète\n→ Créez vos formations en ligne",
+      "social_proof": "✅ 30+ centres actifs • 📚 3000+ élèves • 📱 LMS complet",
+      "min_score": 25,
+      "pricing": {
+        "monthly": 297,
+        "lifetime": 2997
+      },
+      "has_lifetime": true,
+      "setup_time": "Mise en place en 24-48h, plateforme opérationnelle",
+      "badges": ["Populaire", "Complète"],
+      "features": [
+        "Cours vidéo hébergés",
+        "Quiz & examens auto-corrigés",
+        "Suivi progression élèves",
+        "Certifications PDF auto"
+      ]
+    },
+    "smartschool-app-lms": {
+      "id": "smartschool-app-lms",
+      "name": "SmartSchool App LMS",
+      "icon": "🎓",
+      "category": "education",
+      "featured": false,
+      "description": "App mobile iOS/Android pour vos élèves : accès à tous les cours, notifications, téléchargement hors ligne. Requiert SmartSchool LMS. Mise en place en 24-48h.\n\n→ App mobile pour vos élèves\n→ Complète SmartSchool LMS",
+      "social_proof": "✅ App iOS/Android • 📱 Notifications push • ⚡ Hors ligne",
+      "min_score": 20,
+      "pricing": {
+        "monthly": 197,
+        "lifetime": 1997
+      },
+      "has_lifetime": true,
+      "setup_time": "Mise en place en 24-48h, app disponible",
+      "badges": ["Add-on", "Requiert LMS"],
+      "requires": "smartschool-lms",
+      "features": [
+        "App iOS/Android",
+        "Accès à tous les cours",
+        "Notifications push",
+        "Téléchargement hors ligne"
+      ]
+    },
+    "quizmaker": {
+      "id": "quizmaker",
+      "name": "QuizMaker",
+      "icon": "🎮",
+      "category": "education",
+      "description": "Engagement maximal garanti. Quiz qui rendent addictifs, résultats analysés, ROI mesuré.\n\n→ 90% complétion rate\n→ Apprentissage x2 plus rapide",
+      "min_score": 15,
+      "pricing": {"monthly": 97},
+      "has_lifetime": false,
+      "setup_time": "Active en 10 min, résultats en 24h",
+      "badges": [],
+      "features": [
+        "Builder drag & drop",
+        "20+ types de questions",
+        "Gamification",
+        "Lead capture intégré"
+      ]
+    },
+    "certifypro": {
+      "id": "certifypro",
+      "name": "CertifyPro",
+      "icon": "📜",
+      "category": "education",
+      "description": "Crédibilité professionnelle boostée. Certifications qui impressionnent, vérifiables, traçables.\n\n→ CV des étudiants x10 mieux\n→ Taux emploi +40%",
+      "min_score": 15,
+      "pricing": {"monthly": 147},
+      "has_lifetime": false,
+      "setup_time": "Démarre en 15 min, rentable en 24h",
+      "badges": [],
+      "features": [
+        "Certificats PDF auto",
+        "Design personnalisable",
+        "Vérification QR code",
+        "Blockchain option"
+      ]
+    },
+    "urlmanager": {
+      "id": "urlmanager",
+      "name": "URLManager",
+      "icon": "🔗",
+      "category": "general",
+      "description": "Tracking pro de tes liens. Chaque clic compté, optimisé, converti.\n\n→ ROI mesuré à 100%\n→ Liens qui convertissent x2",
+      "min_score": 10,
+      "pricing": {"monthly": 47},
+      "has_lifetime": false,
+      "setup_time": "Ultra-rapide : 5 min, visible instantanément",
+      "badges": [],
+      "features": [
+        "URLs courtes brandées",
+        "Analytics clics",
+        "QR codes",
+        "A/B testing URLs"
+      ]
+    },
+    "teamchat": {
+      "id": "teamchat",
+      "name": "TeamChat",
+      "icon": "💬",
+      "category": "general",
+      "description": "Équipe hyper connectée. Communication instantanée, projets avancés, toi tu dors tranquille.\n\n→ Productivité x3\n→ Absence de drames",
+      "min_score": 15,
+      "pricing": {"monthly": 97},
+      "has_lifetime": false,
+      "setup_time": "Active en 20 min, fonctionne immédiatement",
+      "badges": [],
+      "features": [
+        "Chat temps réel",
+        "Channels & DM",
+        "Partage fichiers",
+        "Intégrations"
+      ]
+    }
+  },
+  "fallback": {
+    "enabled": true,
+    "message": "Je te recommande nos 3 apps les plus populaires :",
+    "apps": ["restaurantos", "shopready", "smartschool"]
+  },
+  "api": {
+    "endpoint": "https://nicolasvirin.com/wp-json/captainsimple/v1/lead",
+    "timeout": 10000
+  },
+  "messages": {
+    "typing": "⚓ Captain réfléchit...",
+    "results": "🎯 Voici tes apps recommandées :",
+    "no_results": "Hmm... Recommandations standards :",
+    "select_app": "Quelle app choisis-tu ?",
+    "email_sent": "✅ Email envoyé ! Tes infos de connexion arrivent sous quelques secondes 📧",
+    "enrichment_intro": "📞 Une dernière question : Pour te proposer un setup parfait, j'aimerais 2 infos rapides (optionnel) :",
+    "enrichment_skip": "Passer cette étape →",
+    "enrichment_success": "✅ Parfait ! Je te contacte sous 24h",
+    "form_intro": "🎯 Pour te proposer un plan précis, j'ai besoin de 2 infos rapides :",
+    "success": "🎉 C'est bon ! Vérifie ton email (check spams aussi)",
+    "error": "❌ Oups, une erreur s'est produite",
+    "retry": "🔄 Réessayer",
+    "skip": "Passer →",
+    "loading": "⏳ Chargement..."
+  }
+}
+

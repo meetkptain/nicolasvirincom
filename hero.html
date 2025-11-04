@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub d'Apps Business</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0f172a;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #1e293b 0%, #0f172a 70%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 102, 255, 0.1);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #0066FF 0%, #00CCFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0066FF 0%, #0044CC 100%);
+            color: white;
+            box-shadow: 0 8px 32px rgba(0, 102, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 102, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .btn-large {
+            min-width: 220px;
+        }
+
+        .btn-subtext {
+            font-size: 12px;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        .btn-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 8px 32px rgba(0, 102, 255, 0.3); }
+            50% { box-shadow: 0 8px 40px rgba(0, 102, 255, 0.6); }
+            100% { box-shadow: 0 8px 32px rgba(0, 102, 255, 0.3); }
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0066FF;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+
+        .hero-social-proof {
+            margin-bottom: 24px;
+        }
+
+        .social-proof-text {
+            color: #cbd5e1;
+            margin-bottom: 16px;
+        }
+
+        .client-logos {
+            display: flex;
+            gap: 16px;
+        }
+
+        .client-logo {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .hero-guarantee {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .hero-guarantee p {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .hero-svg {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 
+                0 30px 80px rgba(0, 102, 255, 0.35),
+                0 15px 45px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            filter: drop-shadow(0 0 40px rgba(0, 102, 255, 0.2));
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-image-wrapper:hover .hero-svg {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 40px 120px rgba(0, 102, 255, 0.45),
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .scroll-arrow {
+            width: 2px;
+            height: 20px;
+            background: #cbd5e1;
+            margin: 8px auto 0;
+            border-radius: 1px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Styles pour les éléments interactifs du SVG */
+        .interactive-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-card:hover {
+            filter: drop-shadow(0 8px 20px rgba(0, 102, 255, 0.4));
+        }
+
+        .cta-button {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            filter: drop-shadow(0 0 25px rgba(0, 102, 255, 0.6));
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background"></div>
+      
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">⚓ Hub d'Apps Business clés en main</span>
+        
+                    <h1 class="hero-title">
+                        J'ai codé plus de 200 projets pour des clients.<br>
+                        <span class="gradient-text">Aujourd'hui, tout est prêt à l'emploi pour vous.</span>
+                    </h1>
+        
+                    <p class="hero-description">
+                        Chaque business a les mêmes besoins : site, app, marketing, support.<br>
+                        J'ai tout industrialisé pour que vous ne perdiez plus de temps.<br><br>
+                        <strong>Restaurant, E-commerce, Agence, École…</strong> <br>
+                        18 solutions prêtes à brancher — actives en 24h, résultats dès le 1er jour ✅
+                    </p>
+        
+                    <div class="hero-cta">
+                        <a href="#smart-finder" class="btn btn-primary btn-large btn-pulse" data-smart-finder>
+                            🎯 Trouver mon app (10 sec)
+                            <span class="btn-subtext">Smart Finder pour recommandation instantanée</span>
+                        </a>
+                        <a href="#apps-catalog" class="btn btn-secondary btn-large">
+                            📦 Explorer toutes les apps
+                        </a>
+                    </div>
+        
+                    <!-- Bloc Preuve & Résultats -->
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Entreprises utilisent nos apps</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">15K+</span>
+                            <span class="stat-label">Apps installées depuis 2020</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Uptime garanti (SLA)</span>
+                        </div>
+                    </div>
+        
+                    <div class="hero-social-proof">
+                        <p class="social-proof-text">
+                            Utilisé par restaurants, e-commerces, écoles, agences, startups...
+                        </p>
+                        <div class="client-logos">
+                            <div class="client-logo">🍽️</div>
+                            <div class="client-logo">🛒</div>
+                            <div class="client-logo">🎓</div>
+                            <div class="client-logo">💼</div>
+                            <div class="client-logo">🏢</div>
+                        </div>
+                    </div>
+        
+                    <div class="hero-guarantee">
+                        <p>✅ Essai gratuit 14 jours • ✅ Installation guidée incluse • ✅ Sans engagement</p>
+                    </div>
+                </div>
+        
+                <div class="hero-image">
+                    <div class="hero-image-wrapper">
+                        <!-- SVG INTERACTIF CORRIGÉ -->
+                        <svg viewBox="0 0 800 600" class="hero-svg" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <!-- Gradients -->
+                                <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0f172a" />
+                                    <stop offset="100%" stop-color="#1e293b" />
+                                </linearGradient>
+                                
+                                <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#334155" />
+                                    <stop offset="100%" stop-color="#1e293b" />
+                                </linearGradient>
+                                
+                                <linearGradient id="ctaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0066FF" />
+                                    <stop offset="100%" stop-color="#0044CC" />
+                                </linearGradient>
+                                
+                                <!-- Filters -->
+                                <filter id="shadow">
+                                    <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.3"/>
+                                </filter>
+                                
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+                                    <feMerge> 
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <!-- Fond -->
+                            <rect width="100%" height="100%" fill="url(#bgGradient)" rx="20"/>
+                            
+                            <!-- Dashboard -->
+                            <g filter="url(#shadow)" transform="translate(50, 40)">
+                                <!-- Header -->
+                                <rect x="0" y="0" width="700" height="60" rx="15" fill="#1e293b"/>
+                                <rect x="30" y="15" width="100" height="30" rx="8" fill="#0066FF"/>
+                                <rect x="150" y="15" width="300" height="30" rx="8" fill="#475569"/>
+                                
+                                <!-- Cartes Apps Interactives -->
+                                <g class="interactive-card" data-app="restaurant" id="card-restaurant">
+                                    <rect x="30" y="80" width="200" height="120" rx="12" fill="url(#cardGradient)"/>
+                                    <rect x="45" y="95" width="30" height="30" rx="6" fill="#f59e0b"/>
+                                    <text x="85" y="112" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="bold">Restaurant Pro</text>
+                                    <text x="45" y="135" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">Réservations & Commandes</text>
+                                    <circle cx="210" cy="100" r="5" fill="#10b981"/>
+                                </g>
+                                
+                                <g class="interactive-card" data-app="ecommerce" id="card-ecommerce">
+                                    <rect x="250" y="80" width="200" height="120" rx="12" fill="url(#cardGradient)"/>
+                                    <rect x="265" y="95" width="30" height="30" rx="6" fill="#ef4444"/>
+                                    <text x="305" y="112" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="bold">E-commerce Boost</text>
+                                    <text x="265" y="135" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">Ventes & Analytics</text>
+                                    <circle cx="430" cy="100" r="5" fill="#10b981"/>
+                                </g>
+                                
+                                <g class="interactive-card" data-app="agency" id="card-agency">
+                                    <rect x="470" y="80" width="200" height="120" rx="12" fill="url(#cardGradient)"/>
+                                    <rect x="485" y="95" width="30" height="30" rx="6" fill="#8b5cf6"/>
+                                    <text x="525" y="112" font-family="Arial, sans-serif" font-size="13" fill="white" font-weight="bold">Agency Suite</text>
+                                    <text x="485" y="135" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">CRM & Facturation</text>
+                                    <circle cx="650" cy="100" r="5" fill="#10b981"/>
+                                </g>
+                                
+                                <!-- Bouton CTA Principal -->
+                                <g class="cta-button" id="svgCtaButton">
+                                    <rect x="200" y="220" width="300" height="60" rx="30" fill="url(#ctaGradient)" filter="url(#glow)"/>
+                                    <text x="350" y="245" font-family="Arial, sans-serif" font-size="16" fill="white" font-weight="bold" text-anchor="middle">
+                                        🎯 Trouver mon app
+                                    </text>
+                                    <text x="350" y="265" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.9)" text-anchor="middle">
+                                        Smart Finder • 10 secondes
+                                    </text>
+                                    <!-- Zone cliquable précise -->
+                                    <rect x="200" y="220" width="300" height="60" rx="30" fill="transparent" id="ctaClickArea"/>
+                                </g>
+                                
+                                <!-- Graphique de résultats -->
+                                <rect x="30" y="300" width="640" height="180" rx="12" fill="url(#cardGradient)"/>
+                                <text x="40" y="325" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">Apps Recommandées</text>
+                                
+                                <!-- Barres de matching -->
+                                <rect x="80" y="350" width="400" height="8" rx="4" fill="#475569"/>
+                                <rect x="80" y="350" width="320" height="8" rx="4" fill="#f59e0b"/>
+                                <text x="60" y="356" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">Restaurant</text>
+                                <text x="490" y="356" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b">80% Match</text>
+                                
+                                <rect x="80" y="370" width="400" height="8" rx="4" fill="#475569"/>
+                                <rect x="80" y="370" width="280" height="8" rx="4" fill="#ef4444"/>
+                                <text x="60" y="376" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">E-commerce</text>
+                                <text x="490" y="376" font-family="Arial, sans-serif" font-size="12" fill="#ef4444">70% Match</text>
+                                
+                                <rect x="80" y="390" width="400" height="8" rx="4" fill="#475569"/>
+                                <rect x="80" y="390" width="240" height="8" rx="4" fill="#8b5cf6"/>
+                                <text x="60" y="396" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">Agence</text>
+                                <text x="490" y="396" font-family="Arial, sans-serif" font-size="12" fill="#8b5cf6">60% Match</text>
+                                
+                                <text x="350" y="450" font-family="Arial, sans-serif" font-size="13" fill="#0066FF" text-anchor="middle" font-weight="bold">
+                                    🚀 Commencez maintenant - 14 jours essai gratuit
+                                </text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion du bouton CTA dans le SVG
+            const svgCtaButton = document.getElementById('svgCtaButton');
+            const ctaClickArea = document.getElementById('ctaClickArea');
+            
+            function launchSmartFinder() {
+                console.log('🚀 Lancement du Smart Finder depuis le SVG');
+                
+                // Animation de feedback
+                if (svgCtaButton) {
+                    svgCtaButton.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        svgCtaButton.style.transform = '';
+                    }, 150);
+                }
+                
+                // Déclencher le Smart Finder
+                const smartFinderBtn = document.querySelector('[data-smart-finder]');
+                if (smartFinderBtn) {
+                    smartFinderBtn.click();
+                } else {
+                    // Fallback
+                    window.location.href = '#smart-finder';
+                }
+            }
+            
+            // Événements pour le CTA
+            if (svgCtaButton && ctaClickArea) {
+                svgCtaButton.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    launchSmartFinder();
+                });
+                
+                ctaClickArea.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    launchSmartFinder();
+                });
+            }
+            
+            // Gestion des cartes d'apps
+            const appCards = document.querySelectorAll('.interactive-card');
+            
+            function handleAppCardClick(appType) {
+                console.log(`📱 Clic sur l'app: ${appType}`);
+                
+                // Animation de feedback
+                const card = document.getElementById(`card-${appType}`);
+                if (card) {
+                    card.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        card.style.transform = '';
+                    }, 150);
+                }
+                
+                // Redirection vers la page de l'app
+                window.location.href = `#app-${appType}`;
+            }
+            
+            appCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const appType = this.getAttribute('data-app');
+                    handleAppCardClick(appType);
+                });
+            });
+            
+            // Empêcher les clics parasites sur le SVG
+            const heroSvg = document.querySelector('.hero-svg');
+            if (heroSvg) {
+                heroSvg.addEventListener('click', function(e) {
+                    if (!e.target.closest('.interactive-card') && !e.target.closest('.cta-button')) {
+                        e.stopPropagation();
+                    }
+                });
+            }
+            
+            // Gestion des hover states
+            appCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.filter = 'drop-shadow(0 8px 20px rgba(0, 102, 255, 0.4))';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.filter = '';
+                });
+            });
+            
+            if (svgCtaButton) {
+                svgCtaButton.addEventListener('mouseenter', function() {
+                    this.style.filter = 'drop-shadow(0 0 25px rgba(0, 102, 255, 0.6))';
+                });
+                
+                svgCtaButton.addEventListener('mouseleave', function() {
+                    this.style.filter = '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
